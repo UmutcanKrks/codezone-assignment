@@ -29,11 +29,8 @@ export default function Hero() {
       image: "/images/hero/hero-1.png",
       title: (
         <>
-          DÜNYA RAP
-          <br />
-          TRENDLERİNİ
-          <br />
-          KONUŞUYORUZ.
+          {" "}
+          DÜNYA RAP <br /> TRENDLERİNİ <br /> KONUŞUYORUZ.{" "}
         </>
       ),
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
@@ -55,7 +52,8 @@ export default function Hero() {
       ),
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
       buttonText: "Devamını Oku",
-      className: "object-cover scale-140 pr-150 pt-36 bg-rapkology-black",
+      className:
+        "object-contain object-left-bottom scale-[1.2] origin-bottom-left bg-rapkology-black",
       textColor: "text-rapkology-white",
     },
   ];
@@ -74,7 +72,7 @@ export default function Hero() {
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className="relative w-full h-[85vh] flex items-center overflow-hidden">
+            <div className="relative w-full aspect-[16/9] flex items-center overflow-hidden min-h-[400px] max-h-[90vh]">
               {/* Background Image */}
               <Image
                 src={slide.image}
@@ -139,7 +137,7 @@ export default function Hero() {
           />
         </button>
       </div>
-      
+
       <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-30">
         <button
           onClick={() => swiperRef.current?.slideNext()}
