@@ -53,7 +53,7 @@ export default function Hero() {
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
       buttonText: "Devamını Oku",
       className:
-        "object-contain object-left-bottom scale-[1.2] origin-bottom-left bg-rapkology-black",
+        "object-contain object-left object-bottom scale-[1.4] translate-x-[-10%] translate-y-[10%] bg-rapkology-black",
       textColor: "text-rapkology-white",
     },
   ];
@@ -72,7 +72,7 @@ export default function Hero() {
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className="relative w-full aspect-[16/9] flex items-center overflow-hidden min-h-[400px] max-h-[90vh]">
+            <div className="relative w-full aspect-[16/9] flex items-center overflow-hidden min-h-[600px] max-h-[90vh]">
               {/* Background Image */}
               <Image
                 src={slide.image}
