@@ -98,7 +98,7 @@ export default function Hero() {
                     </h1>
                     <p className="text-lg mb-10">{slide.text}</p>
                   </div>
-                  <SkewButton>{slide.buttonText}</SkewButton>
+                  <SkewButton className="bg-rapkology-yellow text-rapkology-black">{slide.buttonText}</SkewButton>
 
                   <div className="flex justify-start items-center ml-2 mt-16 space-x-2">
                     {slides.map((_, index) => (

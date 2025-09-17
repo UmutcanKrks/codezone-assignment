@@ -1,0 +1,102 @@
+"use client";
+
+import React, { useState } from "react";
+import { cn } from "../../lib/utils";
+
+interface Category {
+  id: string;
+  label: string;
+  isActive?: boolean;
+}
+
+const defaultCategories: Category[] = [
+  { id: "turk-rap", label: "Türk Rap" },
+  { id: "yabanci-rap", label: "Yabancı Rap", isActive: true },
+  { id: "rap-haberleri", label: "Rap Haberleri" },
+  { id: "haftanin-klipleri", label: "Haftanın Klipleri" },
+  { id: "ayin-klipleri", label: "Ayın Klipleri" },
+  { id: "rap-sohbetleri", label: "Rap Sohbetleri" },
+  { id: "rap-musabakalari", label: "Rap Müsabakaları" }
+];
+
+interface ExploreCategoriesProps {
+  categories?: Category[];
+  onCategorySelect?: (categoryId: string) => void;
+  className?: string;
+  title?: string;
+}
+
+export const ExploreCategories: React.FC<ExploreCategoriesProps> = ({
+  categories = defaultCategories,
+  onCategorySelect,
+  className,
+  title = "NE GÖRMEK İSTERSİN?"
+}) => {
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(
+    categories.filter(cat => cat.isActive).map(cat => cat.id)
+  );
+
+  const handleCategoryClick = (categoryId: string) => {
+    setSelectedCategories(prev => {
+      const isSelected = prev.includes(categoryId);
+      let newSelection;
+      
+      if (isSelected) {
+        // Remove from selection
+        newSelection = prev.filter(id => id !== categoryId);
+      } else {
+        // Add to selection
+        newSelection = [...prev, categoryId];
+      }
+      
+      // Call the callback if provided
+      onCategorySelect?.(categoryId);
+      
+      return newSelection;
+    });
+  };
+
+  return (
+    <div className={cn("w-full ", className)}>
+      {/* Title */}
+      <h2 className="text-white text-[40px] font-bold font-saira-condensed uppercase mb-6 tracking-wide">
+        {title}
+      </h2>
+      
+      {/* Category Buttons */}
+      <div className="flex flex-wrap gap-3">
+        {categories.map((category) => {
+          const isSelected = selectedCategories.includes(category.id);
+          
+          return (
+            <button
+              key={category.id}
+              onClick={() => handleCategoryClick(category.id)}
+              className={cn(
+                "px-6 py-2 text-sm font-medium font-saira transition-all duration-200 border border-transparent cursor-pointer whitespace-nowrap",
+                "hover:scale-105 hover:shadow-lg",
+                "focus:outline-none focus:ring-2 focus:ring-rapkology-yellow focus:ring-opacity-50",
+                isSelected
+                  ? "bg-rapkology-yellow text-black border-rapkology-yellow shadow-md"
+                  : "bg-transparent text-white border-gray-600 hover:border-gray-400 hover:bg-gray-800"
+              )}
+              aria-pressed={isSelected}
+              role="button"
+            >
+              {category.label}
+            </button>
+          );
+        })}
+      </div>
+      
+      {/* Selected Categories Info (Optional) */}
+      {selectedCategories.length > 0 && (
+        <div className="mt-4 text-sm text-gray-400">
+          Seçili kategoriler: {selectedCategories.length}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ExploreCategories;

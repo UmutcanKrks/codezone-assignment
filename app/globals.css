@@ -7,6 +7,9 @@
   --color-rapkology-yellow: #f0e74d;
   --color-rapkology-grey: #5c5c5c;
 }
+body {
+  font-family: var(--font-saira), sans-serif;
+}
 
 :root {
   --rapkology-black: #121212;

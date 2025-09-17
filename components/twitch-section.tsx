@@ -19,7 +19,7 @@ const TwitchSection = () => {
         </div>
 
         {/* Center Content */}
-<div className="absolute top-0 left-0 right-0 flex flex-col items-center text-center px-4 lg:px-8 max-w-md mx-auto">
+        <div className="absolute top-0 left-0 right-0 flex flex-col items-center text-center px-4 lg:px-8 max-w-md mx-auto">
           {/* Twitch Logo */}
           <span className="flex items-center justify-center">
             <Image
@@ -28,7 +28,7 @@ const TwitchSection = () => {
               width={250}
               height={120}
               className=""
-            /> 
+            />
             <div className="rotate-356 text-start">
               <div className="absolute h-[160px] w-px -ml-5 bg-[#3B3B3B]"></div>
               <h2 className="font-saira-condensed text-rapkology-white text-[68.24px] font-light leading-[89%] mb-1">
@@ -77,7 +77,7 @@ const TwitchSection = () => {
           alt="Background vector"
           width={1920}
           height={100}
-  className="w-full h-auto translate-y-[5%]  transform -scale-x-100 opacity-50"
+          className="w-full h-auto translate-y-[5%]  transform -scale-x-100 opacity-50"
         />
       </div>
       <div className="absolute bottom-0 left-0 right-0 z-30">
