@@ -121,7 +121,7 @@ export const ExploreMain: React.FC<ExploreMainProps> = ({
   return (
     <div className={cn("w-full", className)}>
       {/* Header with interactive controls */}
-      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 lg:mb-8 gap-4 lg:gap-0">
+      <div className="flex flex-row lg:items-center justify-between mb-6 lg:mb-8 gap-4 lg:gap-0">
         <h1 className="text-white text-3xl lg:text-6xl font-bold font-saira-condensed uppercase">
           KEŞFET
         </h1>

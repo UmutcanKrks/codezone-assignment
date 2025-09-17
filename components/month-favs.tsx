@@ -47,21 +47,25 @@ export default function MonthFavs() {
 
       <div className="max-w-7xl mx-auto overflow-hidden">
         <div className="top-0 left-0 w-[80vw] max-w-128 aspect-[476/100] bg-white [clip-path:polygon(0%_0%,100%_0%,95%_70%,0%_100%)] z-10">
-          <div className="flex gap-8 px-20 pt-6">
-            <Image
-              src="/images/month-favs/youtube-logo.svg"
-              alt="YouTube"
-              width={140}
-              height={50}
-              className="opacity-90"
-            />
-            <Image
-              src="/images/month-favs/spotify-logo.svg"
-              alt="Spotify"
-              width={140}
-              height={50}
-              className="opacity-90"
-            />
+          <div className="flex pt-4 gap-10 p-8 justify-center">
+            {/* YouTube Logo - Responsive with aspect ratio */}
+            <div className="w-36 aspect-[140/50] relative">
+              <Image
+                src="/images/month-favs/youtube-logo.svg"
+                alt="YouTube"
+                fill
+                className="opacity-90 object-contain"
+              />
+            </div>
+            {/* Spotify Logo - Responsive with aspect ratio */}
+            <div className="w-36 aspect-[140/50] relative">
+              <Image
+                src="/images/month-favs/spotify-logo.svg"
+                alt="Spotify"
+                fill
+                className="opacity-90 object-contain"
+              />
+            </div>
           </div>
         </div>
 
