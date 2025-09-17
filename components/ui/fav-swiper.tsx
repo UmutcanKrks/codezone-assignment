@@ -26,11 +26,29 @@ interface FavSwiperProps {
 export default function FavSwiper({ favorites }: FavSwiperProps) {
   return (
     <>
-      <div className="w-full max-w-5xl relative">
+      <div className="w-full mx-auto relative">
         <Swiper
           modules={[Pagination, Autoplay, Scrollbar]}
-          slidesPerView="2.5"
-          spaceBetween={50}
+          slidesPerView={1}
+          spaceBetween={20}
+          breakpoints={{
+            1280: {
+              slidesPerView: 2.5,
+              spaceBetween: 50,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 50,
+            },
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+          }}
           pagination={{
             clickable: true,
             el: '.swiper-pagination-custom',

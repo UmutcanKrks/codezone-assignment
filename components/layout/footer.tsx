@@ -2,32 +2,32 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="bg-rapkology-black text-white pt-16 ">
+    <footer className="bg-rapkology-black text-white pt-8 lg:pt-16 px-4 lg:px-0">
       <div className="max-w-6xl mx-auto">
         {/* Newsletter Section */}
-        <div className="mb-12">
-          <h2 className="text-2xl md:text-[40px] font-bold mb-6 leading-tight font-saira-condensed">
+        <div className="mb-8 lg:mb-12">
+          <h2 className="text-xl lg:text-2xl xl:text-[40px] font-bold mb-4 lg:mb-6 leading-tight font-saira-condensed">
             GELİŞMELERDEN İLK SEN<br />
             HABERDAR OL!
           </h2>
           
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md text-sm bold font-saira border-b border-gray-600">
+          <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 max-w-md text-sm bold font-saira border-b border-gray-600">
             <div className="flex-1">
               <input
                 type="email"
                 placeholder="EMAIL"
-                className="w-full bg-transparent py-3 px-0 text-white placeholder-gray-400 focus:outline-none focus:border-rapkology-yellow transition-colors"
+                className="w-full bg-transparent py-2 lg:py-3 px-0 text-white placeholder-gray-400 focus:outline-none focus:border-rapkology-yellow transition-colors"
               />
             </div>
-            <button className="text-rapkology-yellow px-0 py-3 font-semibold hover:opacity-90 transition-opacity flex items-center gap-2">
+            <button className="text-rapkology-yellow px-0 py-2 lg:py-3 font-semibold hover:opacity-90 transition-opacity flex items-center gap-2">
               GÖNDER
-              <img src="/common/right-arrow.svg" alt="Right Arrow" width="16" height="16" className="filter brightness-0 invert" />
+              <img src="/common/right-arrow.svg" alt="Right Arrow" width="14" height="14" className="filter brightness-0 invert lg:w-[16px] lg:h-[16px]" />
             </button>
           </div>
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex gap-6 mb-12">
+        <div className="flex gap-4 lg:gap-6 mb-8 lg:mb-12">
           {/* Facebook */}
           <a href="#" className="text-rapkology-yellow hover:opacity-80 transition-opacity">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -94,7 +94,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="text-gray-500 text-sm">
+        <div className="text-gray-500 text-sm pb-4 lg:pb-0">
           © RAPKOLOGY All Rights Are Reserved 2022.
         </div>
       </div>

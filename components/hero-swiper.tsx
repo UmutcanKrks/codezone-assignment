@@ -90,17 +90,17 @@ export default function Hero() {
                 />
               </div>
               {/* Content */}
-              <div className="font-saira-condensed relative container z-10 mx-auto flex flex-col items-end text-left ">
-                <div className="items-end max-w-xl ">
+              <div className="font-saira-condensed relative container z-10 mx-auto flex flex-col items-end text-left lg:max-w-3xl xl:max-w-6xl 2xl:max-w-7xl">
+                <div className="items-end max-w-sm xl:max-w-lg ">
                   <div className={`items-end max-w-2xl ${slide.textColor}`}>
-                    <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                    <h1 className="text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-4 2xl:mb-6 leading-tight">
                       {slide.title}
                     </h1>
-                    <p className="text-lg mb-10">{slide.text}</p>
+                    <p className="text-sm xl:text-base mb-6 2xl:mb-10">{slide.text}</p>
                   </div>
                   <SkewButton className="bg-rapkology-yellow text-rapkology-black">{slide.buttonText}</SkewButton>
 
-                  <div className="flex justify-start items-center ml-2 mt-16 space-x-2">
+                  <div className="flex justify-start items-center ml-2 mt-10 2xl:mt-16 space-x-2">
                     {slides.map((_, index) => (
                       <button
                         key={index}

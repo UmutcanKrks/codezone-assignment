@@ -29,7 +29,7 @@ export default function Header() {
       </div>
 
       {/* Navigation Menu */}
-      <nav className="hidden md:flex space-x-12 ml-36">
+      <nav className="hidden md:flex space-x-12 ml-52">
         {navigationItems.map((item) => (
           <Link
             key={item.label}
@@ -56,7 +56,7 @@ export default function Header() {
 
         {/* Login Button */}
         <button
-          className="bg-white text-black px-6 py-2 text-sm font-semibold hover:bg-gray-100 transition-colors rounded-sm"
+          className="bg-white text-black px-6 py-2 text-sm font-semibold hover:bg-gray-100 transition-colors"
         >
           GİRİŞ YAP
         </button>

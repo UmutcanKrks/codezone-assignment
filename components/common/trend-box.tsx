@@ -14,6 +14,7 @@ export interface TrendItem {
   // Properties for explore variant
   image?: string;
   date?: string;
+  description?: string;
 }
 
 interface TrendBoxProps {
@@ -35,27 +36,27 @@ export const TrendBox: React.FC<TrendBoxProps> = ({
       return (
         <div
           className={cn(
-            "relative bg-rapkology-black p-4 transition-all duration-300 flex flex-col",
+            "relative bg-rapkology-black p-3 lg:p-4 transition-all duration-300 flex flex-col",
             className
           )}
         >
           {/* Image on top */}
           {item.image && (
-            <div className="relative w-full h-48 mb-4 overflow-hidden border-4 border-rapkology-yellow">
+            <div className="relative w-full h-40 lg:h-48 mb-3 lg:mb-4 overflow-hidden border-2 lg:border-4 border-rapkology-yellow bg-gray-900">
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
               {/* Rapkology logo overlay */}
-              <div className="absolute top-2 left-2">
+              <div className="absolute top-1 left-1 lg:top-2 lg:left-2">
                 <Image
                   src="/logos/rapkology-logo.png"
                   alt="Rapkology"
-                  width={80}
-                  height={20}
-                  className="filter brightness-0 invert"
+                  width={60}
+                  height={15}
+                  className="filter brightness-0 invert lg:w-[80px] lg:h-[20px]"
                 />
               </div>
             </div>
@@ -63,27 +64,29 @@ export const TrendBox: React.FC<TrendBoxProps> = ({
 
           {/* Date */}
           {item.date && (
-            <div className="text-[#888] text-sm font-saira mb-2">
+            <div className="text-[#888] text-xs lg:text-sm font-saira mb-2">
               {item.date}
             </div>
           )}
 
           {/* Title */}
-          <h3 className="mb-3 font-saira-condensed font-bold text-lg leading-tight uppercase text-rapkology-white">
+          <h3 className="mb-2 lg:mb-3 font-saira-condensed font-bold text-base lg:text-lg leading-tight uppercase text-rapkology-white">
             {item.title}
           </h3>
 
           {/* Description text */}
-          <p className="text-gray-300 text-sm font-saira mb-4 line-clamp-3">
-            "Bulamazsin", İngilizce ve Türkçe sözlerin harmanlandığı bir şarkı. Parça, karşılıksız sevgiye, güven kaybını ve yaşanan hayal kırıklıklarını...
-          </p>
+          {item.description && (
+            <p className="text-gray-300 text-xs lg:text-sm font-saira mb-3 lg:mb-4 line-clamp-3">
+              {item.description}
+            </p>
+          )}
 
           {/* Divider line */}
-          <div className="h-px bg-[#3b3b3b] mb-3"></div>
+          <div className="h-px bg-[#3b3b3b] mb-2 lg:mb-3"></div>
 
           {/* Read More Link */}
           <div>
-            <span className="text-rapkology-white text-sm font-saira">
+            <span className="text-rapkology-white text-xs lg:text-sm font-saira">
               Devamını Oku
             </span>
           </div>
@@ -95,34 +98,36 @@ export const TrendBox: React.FC<TrendBoxProps> = ({
     return (
       <div
         className={cn(
-          "relative bg-rapkology-black  py-4 transition-all duration-300 flex gap-4",
+          "relative bg-rapkology-black py-3 lg:py-4 transition-all duration-300",
+          // Mobile: Stack vertically, Desktop: Side by side
+          "flex flex-col lg:flex-row gap-3 lg:gap-4",
           className
         )}
       >
-        {/* Left side - Image and Date */}
+        {/* Image and Date Section */}
         <div className="flex-shrink-0">
           {item.image && (
-            <div className="relative w-70 h-45 mb-2 overflow-hidden">
+            <div className="relative w-full lg:w-70 h-50 lg:h-45 mb-2 overflow-hidden bg-gray-900">
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
-                className="object-cover ml-1"
+                className="object-contain bg-rapkology-black"
               />
             </div>
           )}
           {item.date && (
-            <div className="text-[#888] text-sm font-saira">
+            <div className="text-[#888] text-xs lg:text-sm font-saira">
               {item.date}
             </div>
           )}
         </div>
 
-        {/* Right side - Content */}
+        {/* Content Section */}
         <div className="flex-1">
           {/* Author Info */}
-          <div className="flex items-center gap-2 mb-3">
-            <div className="relative w-6 h-6 rounded-full overflow-hidden">
+          <div className="flex items-center gap-2 mb-2 lg:mb-3">
+            <div className="relative w-5 h-5 lg:w-6 lg:h-6 rounded-full overflow-hidden">
               <Image
                 src={item.author.avatar}
                 alt={item.author.name}
@@ -130,22 +135,22 @@ export const TrendBox: React.FC<TrendBoxProps> = ({
                 className="object-cover"
               />
             </div>
-            <span className="font-saira font-normal text-[16px] leading-[120%] tracking-[0.015em] text-rapkology-white">
+            <span className="font-saira font-normal text-sm lg:text-[16px] leading-[120%] tracking-[0.015em] text-rapkology-white">
               {item.author.name}
             </span>
           </div>
 
           {/* Title */}
-          <h3 className="mb-3 font-saira-condensed font-bold text-[25px] leading-[104%] uppercase text-rapkology-white tracking-[0]">
+          <h3 className="mb-2 lg:mb-3 font-saira-condensed font-bold text-lg lg:text-[25px] leading-[104%] uppercase text-rapkology-white tracking-[0]">
             {item.title}
           </h3>
 
           {/* Divider line */}
-          <div className="h-px bg-[#3b3b3b] mb-3"></div>
+          <div className="h-px bg-[#3b3b3b] mb-2 lg:mb-3"></div>
 
           {/* Read More Link */}
           <div>
-            <span className="block w-[128.16px] h-[17px] text-rapkology-white opacity-100 text-sm font-saira">
+            <span className="block text-rapkology-white opacity-100 text-xs lg:text-sm font-saira">
               {item.readMoreText || "Daha Fazla Oku"}
             </span>
           </div>

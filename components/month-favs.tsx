@@ -65,18 +65,18 @@ export default function MonthFavs() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between">
-          {/* Left Side - Title */}
-          <div className="flex-1">
-            <h2 className=" text-white text-6xl font-bold leading-tight font-saira-condensed">
+        <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between mx-auto xl:max-w-5xl">
+          {/* Title */}
+          <div className="xl:flex-1 text-center xl:text-left mb-8 xl:mb-0">
+            <h2 className="text-white text-4xl sm:text-5xl xl:text-6xl font-bold leading-tight font-saira-condensed">
               AYIN
               <br />
               <span className="text-rapkology-white">FAVORİLERİ</span>
             </h2>
           </div>
 
-          {/* Right Side - Favorites Cards Swiper */}
-          <div className="flex-1 flex justify-end w-180 translate-y-[-10%]">
+          {/* Favorites Cards Swiper */}
+          <div className="max-w-xs md:max-w-2xl lg:max-w-4xl xl:max-w-4xl flex items-center mx-auto justify-center xl:flex-1 xl:flex xl:justify-end xl:w-180 xl:translate-x-[12%] xl:translate-y-[-10%]">
             <FavSwiper favorites={favorites} />
           </div>
         </div>
