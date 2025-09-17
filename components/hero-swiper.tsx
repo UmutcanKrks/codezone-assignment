@@ -58,111 +58,160 @@ export default function Hero() {
     },
   ];
 
+  // Mobile hero slide (hero-2 content for mobile)
+  const mobileHeroSlide = slides[1]; // Using hero-2 slide for mobile
+
   return (
     <section className="relative w-full overflow-hidden">
-      {/* Swiper */}
-      <Swiper
-        modules={[Pagination, Autoplay]}
-        pagination={false}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
-        loop
-        className="w-full h-full"
-        onSwiper={(swiper) => (swiperRef.current = swiper)}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-      >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <div className="relative w-full aspect-[16/9] flex items-center overflow-hidden min-h-[600px] max-h-[90vh]">
-              {/* Background Image */}
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                fill
-                priority={slide.id === 1}
-                className={slide.className}
-              />
-              <div className="absolute inset-0 z-10">
-                <Image
-                  src="images/hero/metal-bg.png"
-                  alt="Metal texture"
-                  fill
-                  className="object-cover opacity-20 mix-blend-multiply"
-                />
+      {/* Mobile Hero (< 640px) - Static Display */}
+      <div className="sm:hidden">
+        <div className="relative w-full min-h-[100vh] flex flex-col bg-rapkology-black overflow-hidden">
+          {/* Background Image */}
+          <Image
+            src="/images/hero/hero-2.png"
+            alt="Hero background"
+            fill
+            priority
+            className="object-contain object-center object-bottom scale-[2.2]  translate-x-[-3%] translate-y-[25%]"
+          />
+       
+          {/* Content - Center aligned at top */}
+          <div className="font-saira-condensed relative z-20 flex flex-col items-center justify-start text-center px-6 pt-30 pb-24 min-h-[100vh]">
+            <div className="max-w-xs mx-auto space-y-4">
+              <div className="text-rapkology-white space-y-2">
+                <h1 className="text-3xl font-bold leading-[1.1] tracking-tight">
+                  {mobileHeroSlide.title}
+                </h1>
+                <p className="text-sm leading-[1.6] opacity-90 px-7">
+                  {mobileHeroSlide.text}
+                </p>
               </div>
-              {/* Content */}
-              <div className="font-saira-condensed relative container z-10 mx-auto flex flex-col items-end text-left lg:max-w-3xl xl:max-w-6xl 2xl:max-w-7xl">
-                <div className="items-end max-w-sm xl:max-w-lg ">
-                  <div className={`items-end max-w-2xl ${slide.textColor}`}>
-                    <h1 className="text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-4 2xl:mb-6 leading-tight">
-                      {slide.title}
-                    </h1>
-                    <p className="text-sm xl:text-base mb-6 2xl:mb-10">{slide.text}</p>
-                  </div>
-                  <SkewButton className="bg-rapkology-yellow text-rapkology-black">{slide.buttonText}</SkewButton>
+              <div className="">
+                <SkewButton className="bg-rapkology-yellow text-rapkology-black font-bold">
+                  {mobileHeroSlide.buttonText}
+                </SkewButton>
+              </div>
+            </div>
+          </div>
 
-                  <div className="flex justify-start items-center ml-2 mt-10 2xl:mt-16 space-x-2">
-                    {slides.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => swiperRef.current?.slideToLoop(index)}
-                        className={`rounded-full transition-all duration-300 ${
-                          activeIndex === index
-                            ? "w-3 h-3 bg-rapkology-yellow"
-                            : "w-2 h-2 bg-gray-800"
-                        }`}
-                        aria-label={`Go to slide ${index + 1}`}
-                      />
-                    ))}
+          {/* Vector at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 z-20">
+            <Image
+              src="/images/hero/hero-vector.svg"
+              alt="Hero vector"
+              width={1920}
+              height={200}
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Hero (>= 640px) - Swiper */}
+      <div className="hidden sm:block">
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          pagination={false}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          loop
+          className="w-full h-full"
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        >
+          {slides.map((slide) => (
+            <SwiperSlide key={slide.id}>
+              <div className="relative w-full aspect-[16/9] flex items-center overflow-hidden min-h-[600px] max-h-[90vh]">
+                {/* Background Image */}
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  priority={slide.id === 1}
+                  className={slide.className}
+                />
+                <div className="absolute inset-0 z-10">
+                  <Image
+                    src="images/hero/metal-bg.png"
+                    alt="Metal texture"
+                    fill
+                    className="object-cover opacity-20 mix-blend-multiply"
+                  />
+                </div>
+                {/* Content */}
+                <div className="font-saira-condensed relative container z-10 mx-auto flex flex-col items-end text-left lg:max-w-3xl xl:max-w-6xl 2xl:max-w-7xl">
+                  <div className="items-end max-w-sm xl:max-w-lg ">
+                    <div className={`items-end max-w-2xl ${slide.textColor}`}>
+                      <h1 className="text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-4 2xl:mb-6 leading-tight">
+                        {slide.title}
+                      </h1>
+                      <p className="text-sm xl:text-base mb-6 2xl:mb-10">{slide.text}</p>
+                    </div>
+                    <SkewButton className="bg-rapkology-yellow text-rapkology-black">{slide.buttonText}</SkewButton>
+
+                    <div className="flex justify-start items-center ml-2 mt-10 2xl:mt-16 space-x-2">
+                      {slides.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => swiperRef.current?.slideToLoop(index)}
+                          className={`rounded-full transition-all duration-300 ${
+                            activeIndex === index
+                              ? "w-3 h-3 bg-rapkology-yellow"
+                              : "w-2 h-2 bg-gray-800"
+                          }`}
+                          aria-label={`Go to slide ${index + 1}`}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-      {/* Navigation Arrows */}
-      <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-30">
-        <button
-          onClick={() => swiperRef.current?.slidePrev()}
-          className="p-3 hover:bg-white/10 rounded-full transition-all duration-300 group"
-          aria-label="Previous slide"
-        >
+        {/* Navigation Arrows */}
+        <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-30">
+          <button
+            onClick={() => swiperRef.current?.slidePrev()}
+            className="p-3 hover:bg-white/10 rounded-full transition-all duration-300 group"
+            aria-label="Previous slide"
+          >
+            <Image
+              src="/common/left-arrow.svg"
+              alt="Previous"
+              width={26}
+              height={27}
+              className="w-6 h-6 group-hover:scale-110 transition-transform"
+            />
+          </button>
+        </div>
+
+        <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-30">
+          <button
+            onClick={() => swiperRef.current?.slideNext()}
+            className="p-3 hover:bg-white/10 rounded-full transition-all duration-300 group"
+            aria-label="Next slide"
+          >
+            <Image
+              src="/common/right-arrow.svg"
+              alt="Next"
+              width={26}
+              height={27}
+              className="w-6 h-6 group-hover:scale-110 transition-transform"
+            />
+          </button>
+        </div>
+
+        {/* Vector at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
           <Image
-            src="/common/left-arrow.svg"
-            alt="Previous"
-            width={26}
-            height={27}
-            className="w-6 h-6 group-hover:scale-110 transition-transform"
+            src="/images/hero/hero-vector.svg"
+            alt="Hero vector"
+            width={1920}
+            height={200}
+            className="w-full h-auto"
           />
-        </button>
-      </div>
-
-      <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-30">
-        <button
-          onClick={() => swiperRef.current?.slideNext()}
-          className="p-3 hover:bg-white/10 rounded-full transition-all duration-300 group"
-          aria-label="Next slide"
-        >
-          <Image
-            src="/common/right-arrow.svg"
-            alt="Next"
-            width={26}
-            height={27}
-            className="w-6 h-6 group-hover:scale-110 transition-transform"
-          />
-        </button>
-      </div>
-
-      {/* Vector at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-20">
-        <Image
-          src="/images/hero/hero-vector.svg"
-          alt="Hero vector"
-          width={1920}
-          height={200}
-          className="w-full h-auto"
-        />
+        </div>
       </div>
     </section>
   );
