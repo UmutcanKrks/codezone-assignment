@@ -12,7 +12,7 @@ export default function SkewButton({ children, className = "" }: SkewButtonProps
   const textColor = textColorMatch ? textColorMatch[0] : "text-black";
   
   return (
-      <button className={`relative inline-block 
+      <button className={`relative inline-block cursor-pointer
         -ml-1 sm:-ml-2 
         px-4 py-1.5 sm:px-6 sm:py-2 xl:px-10 xl:py-2 
         text-sm sm:text-base xl:text-lg 

@@ -19,7 +19,7 @@ export default function Footer() {
                 className="w-full bg-transparent py-2 lg:py-3 px-0 text-white placeholder-gray-400 focus:outline-none focus:border-rapkology-yellow transition-colors"
               />
             </div>
-            <button className="text-rapkology-yellow px-0 py-2 lg:py-3 font-semibold hover:opacity-90 transition-opacity flex items-center gap-2">
+            <button className="text-rapkology-yellow px-0 py-2 lg:py-3 font-semibold hover:opacity-90 transition-opacity flex items-center gap-2 cursor-pointer">
               GÖNDER
               <img src="/common/right-arrow.svg" alt="Right Arrow" width="14" height="14" className="filter brightness-0 invert lg:w-[16px] lg:h-[16px]" />
             </button>

@@ -19,7 +19,7 @@ const mockTrends: TrendItem[] = [
     number: "01",
     author: {
       name: "Jonathan Stewart",
-      avatar: "/images/avatars/jonathan-stewart.svg",
+      avatar: "/images/avatars/jon.png",
     },
     title:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit ut et massa mi.",
@@ -30,7 +30,7 @@ const mockTrends: TrendItem[] = [
     number: "02",
     author: {
       name: "Steve Rogerson",
-      avatar: "/images/avatars/steve-rogerson.svg",
+      avatar: "/images/avatars/steve.png",
     },
     title:
       "Praesent lorem orci, mattis non efficitur id curabitur at risus sodales aenean at.",
@@ -41,7 +41,7 @@ const mockTrends: TrendItem[] = [
     number: "03",
     author: {
       name: "Ismail Kor",
-      avatar: "/images/avatars/ismail-kor.svg",
+      avatar: "/images/avatars/ismail.png",
     },
     title:
       "Ultrices dignissim nibh ut cursus. Nam et quam sit amet turpis finibus maximus.",
@@ -52,7 +52,7 @@ const mockTrends: TrendItem[] = [
     number: "04",
     author: {
       name: "Jonathan Stewart",
-      avatar: "/images/avatars/jonathan-stewart.svg",
+      avatar: "/images/avatars/jon.png",
     },
     title:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit ut et massa mi.",
@@ -63,7 +63,7 @@ const mockTrends: TrendItem[] = [
     number: "05",
     author: {
       name: "Steve Rogerson",
-      avatar: "/images/avatars/steve-rogerson.svg",
+      avatar: "/images/avatars/steve.png",
     },
     title:
       "Praesent lorem orci, mattis non efficitur id curabitur at risus sodales aenean at.",
@@ -74,7 +74,7 @@ const mockTrends: TrendItem[] = [
     number: "06",
     author: {
       name: "Ismail Kor",
-      avatar: "/images/avatars/ismail-kor.svg",
+      avatar: "/images/avatars/ismail.png",
     },
     title:
       "Ultrices dignissim nibh ut cursus. Nam et quam sit amet turpis finibus maximus.",

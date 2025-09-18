@@ -119,13 +119,6 @@ export const ExploreCategories: React.FC<ExploreCategoriesProps> = ({
           })}
         </div>
       </div>
-      
-      {/* Selected Categories Info (Optional) */}
-      {selectedCategories.length > 0 && (
-        <div className="mt-3 lg:mt-4 text-sm text-gray-400">
-          Seçili kategoriler: {selectedCategories.length}
-        </div>
-      )}
     </div>
   );
 };

@@ -60,7 +60,7 @@ const TwitchSection = () => {
 
           {/* Right Person */}
           <div className="flex-1 flex justify-center lg:justify-end">
-            <div className="relative w-80 h-96 lg:w-96 lg:h-[500px] xl:w-[420px] xl:h-[550px]">
+            <div className="relative w-80 h-96 lg:w-96 lg:h-[500px] xl:w-[420px] xl:h-[560px]">
               <Image
                 src="/images/twitch/twitch-2.png"
                 alt="Twitch streamer 2"

@@ -24,7 +24,7 @@ const transformDataToTrendItems = (): TrendItem[] => {
       number: String(index + 1).padStart(2, '0'),
       author: {
         name: item.attributes.authors[0] || "Rapkology",
-        avatar: item.attributes.img
+        avatar: "/images/avatars/jon.png"
       },
       title: item.attributes.title.toUpperCase(),
       readMoreText: "Daha Fazla Oku",

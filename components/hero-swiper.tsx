@@ -153,7 +153,7 @@ export default function Hero() {
                         <button
                           key={index}
                           onClick={() => swiperRef.current?.slideToLoop(index)}
-                          className={`rounded-full transition-all duration-300 ${
+                          className={`rounded-full transition-all duration-300 cursor-pointer ${
                             activeIndex === index
                               ? "w-3 h-3 bg-rapkology-yellow"
                               : "w-2 h-2 bg-gray-800"
@@ -173,7 +173,7 @@ export default function Hero() {
         <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-30">
           <button
             onClick={() => swiperRef.current?.slidePrev()}
-            className="p-3 hover:bg-white/10 rounded-full transition-all duration-300 group"
+            className="p-3 hover:bg-white/10 rounded-full transition-all duration-300 group cursor-pointer"
             aria-label="Previous slide"
           >
             <Image
@@ -189,7 +189,7 @@ export default function Hero() {
         <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-30">
           <button
             onClick={() => swiperRef.current?.slideNext()}
-            className="p-3 hover:bg-white/10 rounded-full transition-all duration-300 group"
+            className="p-3 hover:bg-white/10 rounded-full transition-all duration-300 group cursor-pointer"
             aria-label="Next slide"
           >
             <Image

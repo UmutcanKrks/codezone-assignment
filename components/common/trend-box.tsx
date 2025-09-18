@@ -86,7 +86,7 @@ export const TrendBox: React.FC<TrendBoxProps> = ({
 
           {/* Read More Link */}
           <div>
-            <span className="text-rapkology-white text-xs lg:text-sm font-saira">
+            <span className="text-rapkology-white text-xs lg:text-sm font-saira cursor-pointer">
               Devamını Oku
             </span>
           </div>
@@ -107,7 +107,7 @@ export const TrendBox: React.FC<TrendBoxProps> = ({
         {/* Image and Date Section */}
         <div className="flex-shrink-0">
           {item.image && (
-            <div className="relative w-full lg:w-70 h-50 lg:h-45 mb-2 overflow-hidden bg-gray-900">
+            <div className="relative w-full lg:w-80 h-50 lg:h-45 mb-2 overflow-hidden bg-gray-900">
               <Image
                 src={item.image}
                 alt={item.title}
@@ -127,7 +127,7 @@ export const TrendBox: React.FC<TrendBoxProps> = ({
         <div className="flex-1">
           {/* Author Info */}
           <div className="flex items-center gap-2 mb-2 lg:mb-3">
-            <div className="relative w-5 h-5 lg:w-6 lg:h-6 rounded-full overflow-hidden">
+            <div className="relative w-5 h-5 lg:w-6 lg:h-6 rounded-lg overflow-hidden">
               <Image
                 src={item.author.avatar}
                 alt={item.author.name}
@@ -150,7 +150,7 @@ export const TrendBox: React.FC<TrendBoxProps> = ({
 
           {/* Read More Link */}
           <div>
-            <span className="block text-rapkology-white opacity-100 text-xs lg:text-sm font-saira">
+            <span className="block text-rapkology-white opacity-100 text-xs lg:text-sm font-saira cursor-pointer">
               {item.readMoreText || "Daha Fazla Oku"}
             </span>
           </div>
@@ -176,7 +176,7 @@ export const TrendBox: React.FC<TrendBoxProps> = ({
 
       {/* Author Info */}
       <div className="flex items-center gap-2 mb-3 ml-[50px]">
-        <div className="relative w-6 h-6 rounded-full overflow-hidden">
+        <div className="relative w-6 h-6 rounded-lg overflow-hidden">
           <Image
             src={item.author.avatar}
             alt={item.author.name}
@@ -199,7 +199,7 @@ export const TrendBox: React.FC<TrendBoxProps> = ({
 
       {/* Read More Link */}
       <div className="ml-[50px]">
-        <span className="block w-[128.16px] h-[17px] text-rapkology-white opacity-100 text-sm font-saira">
+        <span className="block w-[128.16px] h-[17px] text-rapkology-white opacity-100 text-sm font-saira cursor-pointer">
           {item.readMoreText || "Daha Fazla Oku"}
         </span>
       </div>
