@@ -2,7 +2,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Scrollbar } from 'swiper/modules';
-import FavCover from './fav-cover';
+import FavCover from '@/components/ui/fav-cover';
 
 // Import Swiper styles
 import 'swiper/css';

@@ -11,7 +11,7 @@ export default function Footer() {
             HABERDAR OL!
           </h2>
           
-          <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 max-w-md text-sm bold font-saira border-b border-gray-600">
+          <div className="flex flex-row gap-3 lg:gap-4 max-w-md text-sm bold font-saira border-b border-gray-600">
             <div className="flex-1">
               <input
                 type="email"

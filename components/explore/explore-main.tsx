@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import Image from "next/image";
-import { TrendBox, TrendItem } from "../common/trend-box";
+import { TrendBox, TrendItem } from "../ui/trend-box";
 import { cn } from "../../lib/utils";
 import exploreData from "../../data/data.json";
 
@@ -35,14 +35,28 @@ const transformDataToTrendItems = (): TrendItem[] => {
   });
 };
 
+// Category to tag mapping for filtering
+const categoryTagMapping: Record<string, string[]> = {
+  "turk-rap": ["Türk Rap"],
+  "haftanin-klipleri": ["Haftanın Videoları"],
+  "ayin-klipleri": ["Ayın Videoları"],
+  // Add other mappings as needed
+  "yabanci-rap": [], // No direct mapping in current data
+  "rap-haberleri": [], // No direct mapping in current data
+  "rap-sohbetleri": [], // No direct mapping in current data
+  "rap-musabakalari": [] // No direct mapping in current data
+};
+
 interface ExploreMainProps {
   items?: TrendItem[];
   className?: string;
+  selectedCategories?: string[];
 }
 
 export const ExploreMain: React.FC<ExploreMainProps> = ({
   items = transformDataToTrendItems(),
-  className
+  className,
+  selectedCategories = []
 }) => {
   const [viewMode, setViewMode] = useState<ViewMode>("single");
   const [searchQuery, setSearchQuery] = useState("");
@@ -53,13 +67,37 @@ export const ExploreMain: React.FC<ExploreMainProps> = ({
 
   const ITEMS_PER_PAGE = 3;
 
-  // Filter items based on search query (memoized to prevent infinite loops)
+  // Filter items based on search query and selected categories (memoized to prevent infinite loops)
   const filteredItems = useMemo(() => {
-    return items.filter(item =>
-      item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.author.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  }, [items, searchQuery]);
+    let filtered = items;
+
+    // Apply search filter
+    if (searchQuery) {
+      filtered = filtered.filter(item =>
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.author.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    // Apply category filter
+    if (selectedCategories.length > 0) {
+      filtered = filtered.filter(item => {
+        // Get the original data item to access tags
+        const originalItem = exploreData.find(dataItem => dataItem._id === item.id);
+        if (!originalItem) return false;
+
+        // Check if any selected category matches the item's tags
+        return selectedCategories.some(categoryId => {
+          const mappedTags = categoryTagMapping[categoryId] || [];
+          return mappedTags.some(tag => 
+            originalItem.attributes.tags.includes(tag)
+          );
+        });
+      });
+    }
+
+    return filtered;
+  }, [items, searchQuery, selectedCategories]);
 
   // Calculate displayed items based on current page
   const displayedItems = useMemo(() => {
@@ -82,10 +120,10 @@ export const ExploreMain: React.FC<ExploreMainProps> = ({
     }, 800); // 800ms loading delay
   }, [isLoading, hasMore]);
 
-  // Reset pagination when search changes
+  // Reset pagination when search or categories change
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchQuery]);
+  }, [searchQuery, selectedCategories]);
 
   // Intersection Observer for scroll detection
   useEffect(() => {

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
-import SkewButton from "./common/skew-button";
+import SkewButton from "@/components/ui/skew-button";
 import "swiper/css";
 import "swiper/css/pagination";
 

@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { cn } from "../lib/utils";
-import ExploreCategories from "./explore/explore-categories";
-import ExploreMain from "./explore/explore-main";
-import Footer from "./layout/footer";
+import { cn } from "@/lib/utils";
+import ExploreCategories from "@/components/explore/explore-categories";
+import ExploreMain from "@/components/explore/explore-main";
+import Footer from "@/components/layout/footer";
 
 interface ExploreSectionProps {
   className?: string;
@@ -34,6 +34,7 @@ const ExploreSection: React.FC<ExploreSectionProps> = ({ className }) => {
           {/* Categories Section - Mobile: Horizontal at top */}
           <div className="mb-8">
             <ExploreCategories
+              selectedCategories={selectedCategories}
               onCategorySelect={handleCategorySelect}
               className="w-full"
             />
@@ -64,6 +65,7 @@ const ExploreSection: React.FC<ExploreSectionProps> = ({ className }) => {
           {/* Categories Section - Desktop: Right side */}
           <div className="col-start-9 col-end-13">
             <ExploreCategories
+              selectedCategories={selectedCategories}
               onCategorySelect={handleCategorySelect}
               className="sticky top-8"
             />

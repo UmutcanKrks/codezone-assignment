@@ -21,6 +21,7 @@ const defaultCategories: Category[] = [
 
 interface ExploreCategoriesProps {
   categories?: Category[];
+  selectedCategories?: string[];
   onCategorySelect?: (categoryId: string) => void;
   className?: string;
   title?: string;
@@ -28,32 +29,14 @@ interface ExploreCategoriesProps {
 
 export const ExploreCategories: React.FC<ExploreCategoriesProps> = ({
   categories = defaultCategories,
+  selectedCategories = [],
   onCategorySelect,
   className,
   title = "NE GÖRMEK İSTERSİN?"
 }) => {
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(
-    categories.filter(cat => cat.isActive).map(cat => cat.id)
-  );
-
   const handleCategoryClick = (categoryId: string) => {
-    setSelectedCategories(prev => {
-      const isSelected = prev.includes(categoryId);
-      let newSelection;
-      
-      if (isSelected) {
-        // Remove from selection
-        newSelection = prev.filter(id => id !== categoryId);
-      } else {
-        // Add to selection
-        newSelection = [...prev, categoryId];
-      }
-      
-      // Call the callback if provided
-      onCategorySelect?.(categoryId);
-      
-      return newSelection;
-    });
+    // Call the callback if provided
+    onCategorySelect?.(categoryId);
   };
 
   return (

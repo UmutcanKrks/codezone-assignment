@@ -1,6 +1,13 @@
 import React from "react";
 
-export default function FavCover({ placement, coverPhoto, singer, songName }) {
+interface FavCoverProps {
+  placement: number;
+  coverPhoto: string;
+  singer: string;
+  songName: string;
+}
+
+export default function FavCover({ placement, coverPhoto, singer, songName }: FavCoverProps) {
   return (
     <div
       className="relative w-full overflow-hidden aspect-[5/6] md:aspect-[1/1] cursor-pointer group"

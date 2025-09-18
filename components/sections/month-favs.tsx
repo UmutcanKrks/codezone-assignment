@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import FavSwiper from "./ui/fav-swiper";
+import FavSwiper from "@/components/month-favs/fav-swiper";
 
 export default function MonthFavs() {
   const favorites = [

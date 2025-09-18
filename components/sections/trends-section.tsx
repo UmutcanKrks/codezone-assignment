@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { TrendBox, type TrendItem } from "./common/trend-box";
+import { TrendBox, type TrendItem } from "@/components/ui/trend-box";
 import { cn } from "@/lib/utils";
-import SkewButton from "./common/skew-button";
+import SkewButton from "@/components/ui/skew-button";
 
 interface TrendsSectionProps {
   className?: string;
