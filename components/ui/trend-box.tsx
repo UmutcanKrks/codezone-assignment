@@ -42,23 +42,14 @@ export const TrendBox: React.FC<TrendBoxProps> = ({
         >
           {/* Image on top */}
           {item.image && (
-            <div className="relative w-full h-40 lg:h-48 mb-3 lg:mb-4 overflow-hidden border-2 lg:border-4 border-rapkology-yellow bg-gray-900">
+            <div className="relative w-full h-40 lg:h-48 mb-3 lg:mb-4 overflow-hidden ">
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
                 className="object-contain"
               />
-              {/* Rapkology logo overlay */}
-              <div className="absolute top-1 left-1 lg:top-2 lg:left-2">
-                <Image
-                  src="/logos/rapkology-logo.png"
-                  alt="Rapkology"
-                  width={60}
-                  height={15}
-                  className="filter brightness-0 invert lg:w-[80px] lg:h-[20px]"
-                />
-              </div>
+             
             </div>
           )}
 
