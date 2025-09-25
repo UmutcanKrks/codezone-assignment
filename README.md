@@ -93,14 +93,3 @@ npm run start    # Production sunucu
 npm run lint     # Code linting
 ```
 
-## 📱 Tarayıcı Desteği
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
----
-
-**Versiyon**: 1.0.0  
-**Geliştirici**: Rapkology Development Team
